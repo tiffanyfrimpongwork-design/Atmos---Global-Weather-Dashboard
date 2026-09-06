@@ -1,0 +1,64 @@
+<html>
+ <head>
+     <title> Global Weather Dasboard </title>
+     <link rel= "stylesheet" href = "styleweather.css">
+     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+ </head>
+
+<body>
+    <div id = "heading">
+        <h1> GLOBAL WEATHER DASHBOARD</h1>
+    </div>
+
+    <hr>
+
+    <div id = "topbox">
+        <div id = "textbox">
+            <h2> Find a Weather forecast : </h2>
+            <form id = "UserCityInput" onsubmit = "return CheckIfEmpty(event)">
+                <input type= "text" name ="city" id= "city" placeholder = "Enter a city:">
+            </form>
+        </div>
+    </div>
+
+    <div id = "displayStats">
+        
+    </div>
+
+    <script>
+        var CityInput = document.getElementById("city");
+
+        function CheckIfEmpty(){
+            event.preventDefault();
+            let cityValue = CityInput.value.trim();
+            if (cityValue === ""){
+                alert("City cannot be empty");
+                return false;
+            }
+
+            else{
+                document.getElementById("displayStats").textContent = "loading weather for " + cityValue + "...";
+
+                fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityValue}&appid=4fbd5e1379f4f5638433930ed466ab4b&units=metric`)
+                .then(response => response.json())
+                .then(data => {
+                   const temp = data.main.temp;
+                   const description = data.weather[0].description;
+                   const iconCode = data.weather[0].icon;
+                   const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+                  document.getElementById("displayStats").innerHTML = "Temperature: " + temp + "°C <br>" + "Condition: " + description + "<br>" + "<img src='" + iconUrl + "'>";
+
+                })
+
+                .catch(error => { 
+                    console.log("Error:", error);
+                    document.getElementById("displayStats").textContent = "Could not get weather Try again!"
+                });
+                
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
