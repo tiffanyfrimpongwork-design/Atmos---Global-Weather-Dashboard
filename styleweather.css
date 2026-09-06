@@ -1,0 +1,65 @@
+body
+{
+    background-image: url('weather2.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-posistion: center:
+    
+}
+
+#heading
+{
+    text-align: center;
+    font-family: 'Fredoka One';
+    font-size: 25x;
+
+    background-color: rgba(0,0,0,0.5);
+    color: #C6DBEF;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    
+}
+
+hr
+{
+    height:3px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    border-color:blue;
+}
+#topbox
+{
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+    font-family: 'Roboto';
+    padding:5px;
+}
+
+#city
+{
+    width: 500px;
+    height:8px;
+    border-radius: 12px;
+    background-color: rgba(255,255,255,0.8);
+    font-size: 18px;
+    font-family:'Roboto';
+    padding: 10px;
+
+}
+
+#displayStats
+{
+    margin: 10px;
+    background-color:rgba(33,113,181,0.8);
+    float:center;
+    text-align: center;
+    border-radius:10px;
+    border: 4px inset;
+    padding: 20px;
+    text-color: #C6DBEF;
+    text-size: 20px;
+}
